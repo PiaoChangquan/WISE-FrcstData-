@@ -1,0 +1,131 @@
+{
+    "Rest_Unit": {
+        "GetUrl":"http://db.cilaboratory.org:8080/wise/values/weather/30d?streamID=",
+        "PostUrl":"http://db.cilaboratory.org:8080/wise/values/prediction"
+    },
+    "sensor_unit": {
+        "count": 3,
+        "period": 24,
+        "elements": [
+            {
+                "nx": 58,
+                "ny": 126,
+                "AWS":405,
+                "sensors": [
+                    {
+                        "local_id": "Pre",
+                        "sri_id": "09539fd2-12f2-4934-ad92-69deeffa103c"
+                    },
+                    {
+                        "local_id": "Tmax",
+                        "sri_id": "db34d56a-3bdb-46f2-8640-26ae24810fa5"
+                    },
+                    {
+                        "local_id": "Hum",
+                        "sri_id": "2cd00324-92e7-49e1-9ec6-41d22bc7a4d9"
+                    },
+                    {
+                        "local_id": "Tmin",
+                        "sri_id": "ef068b0a-27f0-4950-87b4-cef3300ea891"
+                    },
+                    {
+                        "local_id": "Tav",
+                        "sri_id": "20ca6e7f-94a2-4286-b478-1b0e11f45790"
+                    },
+                    {
+                        "local_id": "TodayPlus1",
+                        "sri_id": "47e2ab8a-7a24-471e-bc2d-66ca873ca994"
+                    },
+                    {
+                        "local_id": "TodayPlus2",
+                        "sri_id": "b529b3a2-c693-4834-9c4a-6fadc2cf80b1"
+                    },
+                    {
+                        "local_id": "Today",
+                        "sri_id": "1732a392-4685-41b1-9b90-db3cdedbaae5"
+                    }
+
+                ]
+            },
+            {
+                "nx": 59,
+                "ny": 125,
+                "AWS":410,
+                "sensors": [
+                    {
+                        "local_id": "Tmax",
+                        "sri_id": "275cddf1-c73c-4b3d-b66f-6d84414f44f5"
+                    },
+                    {
+                        "local_id": "Pre",
+                        "sri_id": "84a4a37d-4ffc-450f-855e-f21d23007e85"
+                    },
+                    {
+                        "local_id": "Hum",
+                        "sri_id": "2cd00324-92e7-49e1-9ec6-41d22bc7a4d9"
+                    },
+                    {
+                        "local_id": "Tmin",
+                        "sri_id": "6cce584c-3c53-4041-9412-dd7b16d28a01"
+                    },
+                    {
+                        "local_id": "Tav",
+                        "sri_id": "dd7e5c61-252a-4281-9af0-de11ead928b2"
+                    },
+                    {
+                        "local_id": "Today",
+                        "sri_id": "02ef00db-d5ea-472a-b6e9-7ca6f9c02726"
+                    },
+                    {
+                        "local_id": "TodayPlus1",
+                        "sri_id": "03713ae5-f2a1-4d1a-b964-7370b2300c29"
+                    },
+                    {
+                        "local_id": "TodayPlus2",
+                        "sri_id": "8c7510d9-26de-4f9d-be76-49a9167e2f36"
+                    }
+                ]
+            },
+            {
+                "nx": 59,
+                "ny": 126,
+                "AWS":418,
+                "sensors": [
+                    {
+                        "local_id": "Tmax",
+                        "sri_id": "c503d3cb-e4d8-42cd-bd6e-cac5a3950ee9"
+                    },
+                    {
+                        "local_id": "Pre",
+                        "sri_id": "41d220f9-4b07-4578-9292-09a88b31ad19"
+                    },
+                    {
+                        "local_id": "Hum",
+                        "sri_id": "f506aa22-f310-4648-ac0a-882e081b8bca"
+                    },
+                    {
+                        "local_id": "Tmin",
+                        "sri_id": "e44c5df7-f0b0-4536-b313-0cc4739668f0"
+                    },
+                    {
+                        "local_id": "Tav",
+                        "sri_id": "0330cedc-9f8a-4498-8387-675ff93db9fd"
+                    },
+                    {
+                        "local_id": "TodayPlus1",
+                        "sri_id": "b6970f4c-39e7-4ea0-85e2-f9a369e755ec"
+                    },
+                    {
+                        "local_id": "TodayPlus2",
+                        "sri_id": "93464375-923f-494d-8945-0d48c9a9ee02"
+                    },
+                    {
+                        "local_id": "Today",
+                        "sri_id": "d422f478-2b1c-46b0-a527-de06a9b06e43"
+                    }
+                ]
+            }
+
+        ]
+    }
+}
