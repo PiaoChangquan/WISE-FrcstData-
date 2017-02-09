@@ -3,8 +3,6 @@ package getdata.fromweb;
 import java.io.IOException;
 import java.net.URLDecoder;
 import java.util.List;
-import java.util.Properties;
-
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
@@ -13,18 +11,16 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.Resource;
-import org.springframework.core.io.support.PropertiesLoaderUtils;
-
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import getdata.fromDB.AWSInfo;
 
 public class ForecastGribReader  {
 
 	private final static Logger logger = LoggerFactory.getLogger(ForecastGribReader.class);
 
-	public List<Item> HourlySubscribe(Item reqItem){
+	public List<Item> HourlySubscribe(Item reqItem, AWSInfo[] awsInfo){
 
 		logger.info(" REST Service Reader Starterd...");
 
@@ -32,24 +28,28 @@ public class ForecastGribReader  {
 			/*
 			 * read configuration
 			 */
-			Resource resource = new ClassPathResource("config.properties");
-			Properties props = PropertiesLoaderUtils.loadProperties(resource);
-			
-			
-			String forecastApiBaseUri = props.getProperty("forecast.url");
-			String serviceKey = props.getProperty("forecast.servicekey");
-			String type = props.getProperty("forecast.resType");
+//			Resource resource = new ClassPathResource("./config.properties");
+//			Properties props = PropertiesLoaderUtils.loadProperties(resource);
+//			
+//			
+//			String forecastApiBaseUri = props.getProperty("forecast.url");
+//			String serviceKey = props.getProperty("forecast.servicekey");
+//			String type = props.getProperty("forecast.resType");
 
+			
 			// String baseTime = "1600";
 
-			URIBuilder builder = new URIBuilder(forecastApiBaseUri);
-			builder.addParameter("serviceKey", URLDecoder.decode(serviceKey, "UTF-8"));
+			URIBuilder builder = new URIBuilder(awsInfo[0].getRestUrl());
+			builder.addParameter("serviceKey", URLDecoder.decode(awsInfo[0].getServiceKey(), "UTF-8"));
 			builder.addParameter("base_date", reqItem.getBaseDate());
 			builder.addParameter("base_time", reqItem.getBaseTime());
 			builder.addParameter("nx", reqItem.getNx());
 			builder.addParameter("ny", reqItem.getNy());
-			builder.addParameter("_type", type);
+			builder.addParameter("_type",awsInfo[0].getResType());
 			builder.addParameter("numOfRows", "999");
+			
+			
+			System.out.println(builder);
 
 			// Call RESTful API for forecast
 			HttpClient client = HttpClients.createDefault();
@@ -91,4 +91,6 @@ public class ForecastGribReader  {
 		}
 		return null;
 	}
+
+
 }

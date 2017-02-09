@@ -4,34 +4,41 @@ package getdata.fromweb;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Properties;
 import java.util.Timer;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.Resource;
-import org.springframework.core.io.support.PropertiesLoaderUtils;
+import getdata.fromDB.AWSInfo;
+import getdata.fromDB.Configure;
 
 public class WeatherDataScraper {
-	
+
+	private static  String filePath = "./WISEconf.json";
 	private final static Logger logger = LoggerFactory.getLogger(WeatherDataScraper.class);
 	
 	public static void main(String[] args) {		
 		
 		try{
-			Resource resource = new ClassPathResource("config.properties");
-			Properties props = PropertiesLoaderUtils.loadProperties(resource);
+			AWSInfo[] awsInfo = Configure.GetAWSInfo(filePath);
+
+//			Resource resource = new ClassPathResource("./config.properties");
+//			Properties props = PropertiesLoaderUtils.loadProperties(resource);
+//			
+//			String exeTime = props.getProperty("forecast.exetime");
+//			String period = props.getProperty("forecast.period");
+//			
 			
-			String exeTime = props.getProperty("forecast.exetime");
-			String period = props.getProperty("forecast.period");
+			
+			String exeTime =awsInfo[0].getExetime();
+			String period =awsInfo[0].getPeriod();
 			
 			Calendar calendar = Calendar.getInstance();
 			Date date = calendar.getTime();
+			
 			String currHour = new SimpleDateFormat("HH").format(date);
 			if(Integer.parseInt(currHour) >= Integer.parseInt(exeTime)){
 				calendar.add(Calendar.DATE, 1);
-				exeTime = new SimpleDateFormat("yyyy-MM-dd").format(calendar.getTime()) + " 22:00";
+				exeTime = new SimpleDateFormat("yyyy-MM-dd").format(calendar.getTime()) + exeTime+":00";
 				date = new SimpleDateFormat("yyyy-MM-dd HH:mm").parse(exeTime);
 			}
 			DailySubscriber job = new DailySubscriber();

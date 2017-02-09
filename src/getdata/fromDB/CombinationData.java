@@ -16,15 +16,13 @@ import outputdata.tofile.SavePredictionInputDataOnFile;
 import runRcode.RunRCode;
 
 public class CombinationData {
+	private static  String filePath = "./WISEconf.json";
 	static java.text.DecimalFormat df = new java.text.DecimalFormat("#0.00");
-
-	// static String InputFileName = "PredictionInputData.txt";
-	// static String OutputFileName = "PredictionOutputData.csv";
 
 	public static void GetTheAllData(ForecastData[] forecastDataArray)
 			throws JsonParseException, JsonMappingException, IOException, InterruptedException, URISyntaxException {
 		// TODO Auto-generated method stub
-		AWSInfo[] awsInfo = Configure.GetAWSInfo();
+		AWSInfo[] awsInfo = Configure.GetAWSInfo(filePath);
 
 		for (int y = 1; y < 4; y++) {
 

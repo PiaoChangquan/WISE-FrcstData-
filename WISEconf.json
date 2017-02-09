@@ -1,11 +1,20 @@
 {
-    "Rest_Unit": {
-        "GetUrl":"http://db.cilaboratory.org:8080/wise/values/weather/30d?streamID=",
-        "PostUrl":"http://db.cilaboratory.org:8080/wise/values/prediction"
+    "forecast_unit": {
+        "restUrl":"hhttp://newsky2.kma.go.kr/service/SecndSrtpdFrcstInfoService2/ForecastSpaceData",
+        "serviceKey":"leIfQWEAzBJIe3O2FBOEAIXPG6R2kIO1W%2B7R56BZVJNfy6WZPiyBNYbxhZtijpsUjdvkCFJVbXEHYY24Gmhdtw%3D%3D",
+        "resType":"json",
+        "baseTime":"1700",
+        "exetime":"22",
+        "period":"1d"
+
     },
+    "dataserver_unit":{
+        "getUrl":"http://114.70.21.32:8080/wise/values/weather/30d?streamID=",
+        "postUrl":"http://114.70.21.32:8080/wise/values/prediction"
+    },
+
     "sensor_unit": {
         "count": 3,
-        "period": 24,
         "elements": [
             {
                 "nx": 58,
@@ -22,7 +31,7 @@
                     },
                     {
                         "local_id": "Hum",
-                        "sri_id": "2cd00324-92e7-49e1-9ec6-41d22bc7a4d9"
+                        "sri_id": "5042d537-c3b3-400e-8347-7d2eb3944a1b"
                     },
                     {
                         "local_id": "Tmin",
@@ -33,16 +42,76 @@
                         "sri_id": "20ca6e7f-94a2-4286-b478-1b0e11f45790"
                     },
                     {
-                        "local_id": "TodayPlus1",
-                        "sri_id": "47e2ab8a-7a24-471e-bc2d-66ca873ca994"
+                        "local_id": "TYPE2RFTodayPlus1LandUse1",
+                        "sri_id": "5a3951da-e837-4d39-b779-cd7bee763ef4"
                     },
                     {
-                        "local_id": "TodayPlus2",
-                        "sri_id": "b529b3a2-c693-4834-9c4a-6fadc2cf80b1"
+                        "local_id": "TYPE2RFTodayPlus1LandUse2",
+                        "sri_id": "e481e3e2-22bb-4904-961d-9759e84cdab7"
                     },
                     {
-                        "local_id": "Today",
-                        "sri_id": "1732a392-4685-41b1-9b90-db3cdedbaae5"
+                        "local_id": "TYPE2RFTodayPlus1LandUse3",
+                        "sri_id": "cb079fcd-4130-407b-87b2-43103f520d59"
+                    },
+                    {
+                        "local_id": "TYPE2RFTodayPlus2LandUse1",
+                        "sri_id": "bd4dc6e3-a289-4111-972e-7761ee6ae8f5"
+                    },
+                    {
+                        "local_id": "TYPE2RFTodayPlus2LandUse2",
+                        "sri_id": "62f633fa-46cc-4a87-89ce-bc6e49e489be"
+                    },
+                    {
+                        "local_id": "TYPE2RFTodayPlus2LandUse3",
+                        "sri_id": "bf78f953-a19b-447a-b9b9-e4db5585440f"
+                    },
+                    {
+                        "local_id": "TYPE2RFTodayLandUse1",
+                        "sri_id": "7a4d3486-a94d-4b61-8845-653895c4ae19"
+                    },
+                    {
+                        "local_id": "TYPE2RFTodayLandUse2",
+                        "sri_id": "fa061e89-2898-410f-8898-7b6f0cd7751f"
+                    },
+                    {
+                        "local_id": "TYPE2RFTodayLandUse3",
+                        "sri_id": "c4f204f5-c443-47fe-bd7d-4e8d029ab4a6"
+                    },
+                    {
+                        "local_id": "TYPE2cartTodayPlus1LandUse1",
+                        "sri_id": "63b8b47f-2528-4df3-89f6-1647f55f4f02"
+                    },
+                    {
+                        "local_id": "TYPE2cartTodayPlus1LandUse2",
+                        "sri_id": "db7ac8d8-4f66-4745-9d70-7450379f5c79"
+                    },
+                    {
+                        "local_id": "TYPE2cartTodayPlus1LandUse3",
+                        "sri_id": "d475ef05-a1e9-430e-9736-e41a4101c4d8"
+                    },
+                    {
+                        "local_id": "TYPE2cartTodayPlus2LandUse1",
+                        "sri_id": "9ecd9c74-03a6-4c80-9d1a-bd8efaf7d5b5"
+                    },
+                    {
+                        "local_id": "TYPE2cartTodayPlus2LandUse2",
+                        "sri_id": "ea5b58aa-7c43-4412-8a3f-47eb04984caf"
+                    },
+                    {
+                        "local_id": "TYPE2cartTodayPlus2LandUse3",
+                        "sri_id": "42321f34-3af6-4c92-88a2-47a38d42f360"
+                    },
+                    {
+                        "local_id": "TYPE2cartTodayLandUse1",
+                        "sri_id": "f9bb84e0-d5e7-4a58-a18b-2eb55162b005"
+                    },
+                    {
+                        "local_id": "TYPE2cartTodayLandUse2",
+                        "sri_id": "74cbdcaa-5416-47b5-ad54-ffd1cf0cea90"
+                    },
+                    {
+                        "local_id": "TYPE2cartTodayLandUse3",
+                        "sri_id": "22049799-09f3-4699-8f28-e9429f334706"
                     }
 
                 ]
@@ -73,16 +142,76 @@
                         "sri_id": "dd7e5c61-252a-4281-9af0-de11ead928b2"
                     },
                     {
-                        "local_id": "Today",
-                        "sri_id": "02ef00db-d5ea-472a-b6e9-7ca6f9c02726"
+                        "local_id": "TYPE2RFTodayLandUse1",
+                        "sri_id": "3e798ec8-7bb7-4a6b-bff9-8933c982e8fe"
                     },
                     {
-                        "local_id": "TodayPlus1",
-                        "sri_id": "03713ae5-f2a1-4d1a-b964-7370b2300c29"
+                        "local_id": "TYPE2RFTodayLandUse2",
+                        "sri_id": "47103944-3208-4121-af9c-6e012e73f62e"
                     },
                     {
-                        "local_id": "TodayPlus2",
-                        "sri_id": "8c7510d9-26de-4f9d-be76-49a9167e2f36"
+                        "local_id": "TYPE2RFTodayLandUse3",
+                        "sri_id": "93d3601c-38ca-4574-96f1-d8fff53cfe9c"
+                    },
+                    {
+                        "local_id": "TYPE2RFTodayPlus1LandUse1",
+                        "sri_id": "8e45955b-bec4-4edc-8a2c-89ce26a6ddc5"
+                    },
+                    {
+                        "local_id": "TYPE2RFTodayPlus1LandUse2",
+                        "sri_id": "adc1b4fc-774c-40c4-9140-5f3cc8adb0d0"
+                    },
+                    {
+                        "local_id": "TYPE2RFTodayPlus1LandUse3",
+                        "sri_id": "c17a1205-8e5e-4717-95b7-bcc4d76a47bd"
+                    },
+                    {
+                        "local_id": "TYPE2RFTodayPlus2LandUse1",
+                        "sri_id": "b5a3c13e-7c35-427c-bbb0-a159ca2d9d3f"
+                    },
+                    {
+                        "local_id": "TYPE2RFTodayPlus2LandUse2",
+                        "sri_id": "29bda372-b616-4c62-bd65-ffe362a46dbc"
+                    },
+                    {
+                        "local_id": "TYPE2RFTodayPlus2LandUse3",
+                        "sri_id": "b6d722e7-6ef0-4f3c-9150-8c6849d3b0fe"
+                    },
+                    {
+                        "local_id": "TYPE2cartTodayLandUse1",
+                        "sri_id": "c3f4e1b7-3bc8-43e0-812a-5cb8b3107fe3"
+                    },
+                    {
+                        "local_id": "TYPE2cartTodayLandUse2",
+                        "sri_id": "a40e249d-87a5-420c-a883-41dcc690b6f5"
+                    },
+                    {
+                        "local_id": "TYPE2cartTodayLandUse3",
+                        "sri_id": "0374544d-947a-47ae-a9fa-35495f287099"
+                    },
+                    {
+                        "local_id": "TYPE2cartTodayPlus1LandUse1",
+                        "sri_id": "07dadc2f-3ed1-492d-9229-75c485da8c89"
+                    },
+                    {
+                        "local_id": "TYPE2cartTodayPlus1LandUse2",
+                        "sri_id": "f7544072-9131-4e3d-844c-c5495b419b5a"
+                    },
+                    {
+                        "local_id": "TYPE2cartTodayPlus1LandUse3",
+                        "sri_id": "44c2418f-8b0e-4566-ac25-371c887922fa"
+                    },
+                    {
+                        "local_id": "TYPE2cartTodayPlus2LandUse1",
+                        "sri_id": "53bac662-1819-48ca-9aeb-f8b27297bf36"
+                    },
+                    {
+                        "local_id": "TYPE2cartTodayPlus2LandUse2",
+                        "sri_id": "408d5761-c108-4368-be60-3639ff6b8b82"
+                    },
+                    {
+                        "local_id": "TYPE2cartTodayPlus2LandUse3",
+                        "sri_id": "52172496-979d-474f-ab25-f3776b5471b6"
                     }
                 ]
             },
@@ -112,16 +241,76 @@
                         "sri_id": "0330cedc-9f8a-4498-8387-675ff93db9fd"
                     },
                     {
-                        "local_id": "TodayPlus1",
-                        "sri_id": "b6970f4c-39e7-4ea0-85e2-f9a369e755ec"
+                        "local_id": "TYPE2RFTodayLandUse1",
+                        "sri_id": "65e0d3ae-9359-4ef9-a821-024f25d87310"
                     },
                     {
-                        "local_id": "TodayPlus2",
-                        "sri_id": "93464375-923f-494d-8945-0d48c9a9ee02"
+                        "local_id": "TYPE2RFTodayLandUse2",
+                        "sri_id": "e691acbe-c634-4c69-a53d-9a5973dc5590"
                     },
                     {
-                        "local_id": "Today",
-                        "sri_id": "d422f478-2b1c-46b0-a527-de06a9b06e43"
+                        "local_id": "TYPE2RFTodayLandUse3",
+                        "sri_id": "d22b7663-3f84-432e-949f-1849c5ed1887"
+                    },
+                    {
+                        "local_id": "TYPE2RFTodayPlus1LandUse1",
+                       "sri_id": "0c26eb32-73d1-46bb-b147-ab959c015fb0"
+                    },
+                    {
+                        "local_id": "TYPE2RFTodayPlus1LandUse2",
+                        "sri_id": "6d6cbd77-d953-478e-b318-47f7f3d69876"
+                    },
+                    {
+                        "local_id": "TYPE2RFTodayPlus1LandUse3",
+                        "sri_id": "0b63ce56-88fb-475d-9e3c-fd71513d6dda"
+                    },
+                    {
+                        "local_id": "TYPE2RFTodayPlus2LandUse1",
+                        "sri_id": "07792bdf-d2ae-4fc7-b973-6091595075d6"
+                    },
+                    {
+                        "local_id": "TYPE2RFTodayPlus2LandUse2",
+                        "sri_id": "9453d0fd-cb30-470f-9913-ed58c271e909"
+                    },
+                    {
+                        "local_id": "TYPE2RFTodayPlus2LandUse3",
+                        "sri_id": "24a0d890-baf8-49c2-9a96-14d480796e73"
+                    },
+                    {
+                        "local_id": "TYPE2cartTodayLandUse1",
+                        "sri_id": "8ffecda4-ba5a-4964-96f3-443dd2041f83"
+                    },
+                    {
+                        "local_id": "TYPE2cartTodayLandUse2",
+                        "sri_id": "c7e862dc-6462-4e19-8a1e-a53de3a2bcb5"
+                    },
+                    {
+                        "local_id": "TYPE2cartTodayLandUse3",
+                        "sri_id": "62b95284-7089-4804-9e80-592b6f8ac29f"
+                    },
+                    {
+                        "local_id": "TYPE2cartTodayPlus1LandUse1",
+                       "sri_id": "8cf0eb95-e48f-4ff5-a621-c5ae522936c1"
+                    },
+                    {
+                        "local_id": "TYPE2cartTodayPlus1LandUse2",
+                        "sri_id": "391fafe8-1ead-421e-89c1-077bdf363663"
+                    },
+                    {
+                        "local_id": "TYPE2cartTodayPlus1LandUse3",
+                        "sri_id": "45d5b7a5-3b6a-402f-aec2-d0d31c6445d8"
+                    },
+                    {
+                        "local_id": "TYPE2cartTodayPlus2LandUse1",
+                        "sri_id": "b7efce7d-f224-4e02-97c0-66bb691309bb"
+                    },
+                    {
+                        "local_id": "TYPE2cartTodayPlus2LandUse2",
+                        "sri_id": "7a207541-32c2-4391-80d6-7650a47d583d"
+                    },
+                    {
+                        "local_id": "TYPE2cartTodayPlus2LandUse3",
+                        "sri_id": "f8ffe0a1-fac2-4187-ab3a-78f172a3e8d9"
                     }
                 ]
             }

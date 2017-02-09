@@ -2,23 +2,10 @@ package getdata.fromDB;
 
 import java.io.File;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.Properties;
-import java.util.Timer;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.Resource;
-import org.springframework.core.io.support.PropertiesLoaderUtils;
-
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -42,16 +29,21 @@ public class Configure {
 	private static int ny;
 	private static int aws;
 	public static int h = 0;
-//	private static String GetUrl;
-//	private static String PostUrl;
+	private static String GetUrl;
+	private static String PostUrl;
 	private static JsonNode rootNode;
-	private static final String filePath = "WISEconf.json";
 	private static ObjectMapper mapper;
 	private static String local_id;
 	private static String sri_id;
-
-	public static AWSInfo[] GetAWSInfo()
-			throws JsonParseException, JsonMappingException, IOException, InterruptedException {
+	private static String restUrl;
+	private static String serviceKey;
+	private static String resType;
+	private static String baseTime;
+	private static String exetime;
+	private static String period;
+	public static AWSInfo[] GetAWSInfo(String filePath) throws JsonParseException, JsonMappingException, IOException {
+		// TODO Auto-generated method stub
+	
 		int count = 0;
 		mapper = new ObjectMapper();
 		try {
@@ -65,16 +57,24 @@ public class Configure {
 		}
 		
 
-		Resource resource = new ClassPathResource("config.properties");
-		Properties props = PropertiesLoaderUtils.loadProperties(resource);
-
-		String GetUrl = props.getProperty("dataserver.getUrl");
-		String PostUrl = props.getProperty("dataserver.postUrl");
-		
-//		JsonNode RestUnitNode = rootNode.path("Rest_Unit");
-//		GetUrl = RestUnitNode.path("GetUrl").asText();
+//		Resource resource = new ClassPathResource("./config.properties");
+//		Properties props = PropertiesLoaderUtils.loadProperties(resource);
 //
-//		PostUrl = RestUnitNode.path("PostUrl").asText();
+//		String GetUrl = props.getProperty("dataserver.getUrl");
+//		String PostUrl = props.getProperty("dataserver.postUrl");
+		
+		JsonNode dataserverUnit = rootNode.path("dataserver_unit");
+		GetUrl = dataserverUnit.path("getUrl").asText();
+		PostUrl = dataserverUnit.path("postUrl").asText();
+		
+		JsonNode forecastUnit = rootNode.path("forecast_unit");
+		restUrl = forecastUnit.path("restUrl").asText();
+		serviceKey = forecastUnit.path("serviceKey").asText();
+		resType = forecastUnit.path("resType").asText();
+		baseTime = forecastUnit.path("baseTime").asText();
+		exetime = forecastUnit.path("exetime").asText();
+		period = forecastUnit.path("period").asText();
+		
 		
 
 		JsonNode sensorUnitNode = rootNode.path("sensor_unit");
@@ -89,13 +89,19 @@ public class Configure {
 				nx = sensorNode.path("nx").intValue();
 				ny = sensorNode.path("ny").intValue();
 				aws = sensorNode.path("AWS").intValue();
-
+				awsInfo[count].setCount(snsrCount);
 				awsInfo[count].setAws(aws);
 				awsInfo[count].setNx(nx);
 				awsInfo[count].setNy(ny);
-				awsInfo[count].setGetUrl(GetUrl);
+				awsInfo[count].setGetUrl(GetUrl);				
+				awsInfo[count].setPostUrl(PostUrl);		
+				awsInfo[count].setRestUrl(restUrl);
+				awsInfo[count].setServiceKey(serviceKey);
+				awsInfo[count].setResType(resType);
+				awsInfo[count].setBaseTime(baseTime);
+				awsInfo[count].setExetime(exetime);
+				awsInfo[count].setPeriod(period);
 				
-				awsInfo[count].setPostUrl(PostUrl);
 				System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~"+awsInfo[count].getGetUrl()+"   "+awsInfo[count].getPostUrl());
 				List<Map<String, String>> logicalSnsr = mapper.readValue(sensorNode.path("sensors").toString(),
 						new TypeReference<LinkedList<HashMap<String, String>>>() {
@@ -160,4 +166,6 @@ public class Configure {
 		}
 		return awsInfo;
 	}
+
+	
 }

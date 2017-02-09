@@ -2,7 +2,6 @@ package ComputeMethod;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -73,8 +72,6 @@ public class ComputingMethod {
 	    int count1 = 0;
 	    int count2 = 0;
 	    int count3 = 0;
-	    int count4 = 0;
-
 	    double Tmx=0;
 	    double Tmx2=0;
 	    double Tmn=9999;
@@ -149,16 +146,7 @@ public class ComputingMethod {
 	        }
 	        logger.debug(" {},{},{},{},{},{}", item.getNx(), item.getNy(), item.getFcstDate(), item.getFcstTime(),
 	            item.getCategory(), item.getFcstValue());
-//	      }else if (item.getCategory().equals("TMN")) {
-//	        count4++;
-//	        if(count4==1){
-//	          Tmn = item.getFcstValue();
-//	        }
-//	        if(count4==2){
-//	          Tmn2 = item.getFcstValue();
-//	        }
-//	        logger.debug(" {},{},{},{},{},{}", item.getNx(), item.getNy(), item.getFcstDate(), item.getFcstTime(),
-//	            item.getCategory(), item.getFcstValue());
+
 	      }
 
 	    }

@@ -4,8 +4,15 @@ public class AWSInfo {
 	int nx;
 	int ny;
 	int aws;
+	int count;
 	String GetUrl;
 	String PostUrl;
+	String restUrl;
+	String serviceKey;
+	String resType;
+	String baseTime;
+	String exetime;
+	String period;
 	String Tmax;
 	String Tmin;
 	String Tav;
@@ -29,6 +36,49 @@ public class AWSInfo {
 	String cartTodayPlus2LandUse1;
 	String cartTodayPlus2LandUse2;
 	String cartTodayPlus2LandUse3;
+	
+	public int getCount() {
+		return count;
+	}
+	public void setCount(int count) {
+		this.count = count;
+	}
+	public String getRestUrl() {
+		return restUrl;
+	}
+	public void setRestUrl(String restUrl) {
+		this.restUrl = restUrl;
+	}
+	public String getServiceKey() {
+		return serviceKey;
+	}
+	public void setServiceKey(String serviceKey) {
+		this.serviceKey = serviceKey;
+	}
+	public String getResType() {
+		return resType;
+	}
+	public void setResType(String resType) {
+		this.resType = resType;
+	}
+	public String getBaseTime() {
+		return baseTime;
+	}
+	public void setBaseTime(String baseTime) {
+		this.baseTime = baseTime;
+	}
+	public String getExetime() {
+		return exetime;
+	}
+	public void setExetime(String exetime) {
+		this.exetime = exetime;
+	}
+	public String getPeriod() {
+		return period;
+	}
+	public void setPeriod(String period) {
+		this.period = period;
+	}
 	public int getNx() {
 		return nx;
 	}
@@ -200,19 +250,22 @@ public class AWSInfo {
 	@Override
 	public String toString() {
 		return "AWSInfo [nx=" + nx + ", ny=" + ny + ", aws=" + aws + ", GetUrl=" + GetUrl + ", PostUrl=" + PostUrl
-				+ ", Tmax=" + Tmax + ", Tmin=" + Tmin + ", Tav=" + Tav + ", Pre=" + Pre + ", Hum=" + Hum
-				+ ", RFTodayLandUse1=" + RFTodayLandUse1 + ", RFTodayLandUse2=" + RFTodayLandUse2 + ", RFTodayLandUse3="
-				+ RFTodayLandUse3 + ", RFTodayPlus1LandUse1=" + RFTodayPlus1LandUse1 + ", RFTodayPlus1LandUse2="
-				+ RFTodayPlus1LandUse2 + ", RFTodayPlus1LandUse3=" + RFTodayPlus1LandUse3 + ", RFTodayPlus2LandUse1="
-				+ RFTodayPlus2LandUse1 + ", RFTodayPlus2LandUse2=" + RFTodayPlus2LandUse2 + ", RFTodayPlus2LandUse3="
-				+ RFTodayPlus2LandUse3 + ", cartTodayLandUse1=" + cartTodayLandUse1 + ", cartTodayLandUse2="
-				+ cartTodayLandUse2 + ", cartTodayLandUse3=" + cartTodayLandUse3 + ", cartTodayPlus1LandUse1="
-				+ cartTodayPlus1LandUse1 + ", cartTodayPlus1LandUse2=" + cartTodayPlus1LandUse2
-				+ ", cartTodayPlus1LandUse3=" + cartTodayPlus1LandUse3 + ", cartTodayPlus2LandUse1="
-				+ cartTodayPlus2LandUse1 + ", cartTodayPlus2LandUse2=" + cartTodayPlus2LandUse2
-				+ ", cartTodayPlus2LandUse3=" + cartTodayPlus2LandUse3 + "]";
+				+ ", restUrl=" + restUrl + ", serviceKey=" + serviceKey + ", resType=" + resType + ", baseTime="
+				+ baseTime + ", exetime=" + exetime + ", period=" + period + ", count=" + count + ", Tmax=" + Tmax
+				+ ", Tmin=" + Tmin + ", Tav=" + Tav + ", Pre=" + Pre + ", Hum=" + Hum + ", RFTodayLandUse1="
+				+ RFTodayLandUse1 + ", RFTodayLandUse2=" + RFTodayLandUse2 + ", RFTodayLandUse3=" + RFTodayLandUse3
+				+ ", RFTodayPlus1LandUse1=" + RFTodayPlus1LandUse1 + ", RFTodayPlus1LandUse2=" + RFTodayPlus1LandUse2
+				+ ", RFTodayPlus1LandUse3=" + RFTodayPlus1LandUse3 + ", RFTodayPlus2LandUse1=" + RFTodayPlus2LandUse1
+				+ ", RFTodayPlus2LandUse2=" + RFTodayPlus2LandUse2 + ", RFTodayPlus2LandUse3=" + RFTodayPlus2LandUse3
+				+ ", cartTodayLandUse1=" + cartTodayLandUse1 + ", cartTodayLandUse2=" + cartTodayLandUse2
+				+ ", cartTodayLandUse3=" + cartTodayLandUse3 + ", cartTodayPlus1LandUse1=" + cartTodayPlus1LandUse1
+				+ ", cartTodayPlus1LandUse2=" + cartTodayPlus1LandUse2 + ", cartTodayPlus1LandUse3="
+				+ cartTodayPlus1LandUse3 + ", cartTodayPlus2LandUse1=" + cartTodayPlus2LandUse1
+				+ ", cartTodayPlus2LandUse2=" + cartTodayPlus2LandUse2 + ", cartTodayPlus2LandUse3="
+				+ cartTodayPlus2LandUse3 + "]";
 	}
-
+	
+	
 	
 //	
 //	@Override
