@@ -142,7 +142,7 @@ public class PostDataToDB {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		System.out.println("System over");
+		System.out.println("Today's program is over");
 	}
 
 	private static void PostDatatoDataBase(String PostUrl, String streamID, String datatime, String value,

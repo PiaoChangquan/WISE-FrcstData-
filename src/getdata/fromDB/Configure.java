@@ -48,13 +48,7 @@ public class Configure {
 		mapper = new ObjectMapper();
 		try {
 			rootNode = mapper.readTree(new File(filePath));
-		} catch (JsonProcessingException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
+		
 		
 
 //		Resource resource = new ClassPathResource("./config.properties");
@@ -165,7 +159,19 @@ public class Configure {
 			}
 		}
 		return awsInfo;
+		} catch (JsonProcessingException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		return null;
 	}
+		
 
 	
 }

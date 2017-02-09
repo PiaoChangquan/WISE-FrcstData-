@@ -49,8 +49,8 @@ public class DailySubscriber extends TimerTask {
 			for (int i = 0; i < siteNum; i++) {
 				resultMap.put(i, new ArrayList<Item>());
 			}
-			long exeTime = currTime - 1 * 24 * 60 * 60 * 1000;
-//			long exeTime = currTime;
+//			long exeTime = currTime - 1 * 24 * 60 * 60 * 1000;
+			long exeTime = currTime;
 			
 			reqItem.setBaseDate(new SimpleDateFormat("yyyyMMdd").format(exeTime));
 
