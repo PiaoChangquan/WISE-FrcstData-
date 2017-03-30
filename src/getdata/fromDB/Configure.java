@@ -96,7 +96,7 @@ public class Configure {
 				awsInfo[count].setExetime(exetime);
 				awsInfo[count].setPeriod(period);
 				
-				System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~"+awsInfo[count].getGetUrl()+"   "+awsInfo[count].getPostUrl());
+//				System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~"+awsInfo[count].getGetUrl()+"   "+awsInfo[count].getPostUrl());
 				List<Map<String, String>> logicalSnsr = mapper.readValue(sensorNode.path("sensors").toString(),
 						new TypeReference<LinkedList<HashMap<String, String>>>() {
 						});
@@ -154,7 +154,7 @@ public class Configure {
 					}
 				}
 
-				System.out.println("num= " + count + " " + awsInfo[count].toString());
+//				System.out.println("num= " + count + " " + awsInfo[count].toString());
 				count++;
 			}
 		}

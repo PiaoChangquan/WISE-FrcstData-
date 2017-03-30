@@ -7,17 +7,23 @@ import java.io.LineNumberReader;
 //import GetDatafromCsv.GetData;
 
 public class RunRCode {
-	public static void MakeRCodeRun(String InputFileName,String OutputFileName) {
+	public static void MakeRCodeRun(String InputFileName,String OutputFileName) throws IOException {
 		// TODO Auto-generated method stub
-		try {
+//		try {
 			Process process = Runtime.getRuntime().exec("chmod +x predict.TYPE2.R");
 			InputStreamReader ir1 = new InputStreamReader(process.getInputStream());
 			LineNumberReader input1 = new LineNumberReader(ir1);
-
+		
+			System.out.println(" wait 5 sec to chmod +x predict.TYPE2.R ");
+			try {
+	            Thread.sleep(5000);
+	        } catch (InterruptedException e) {
+	            e.printStackTrace(); 
+	        }
 			// Run R code  Use RF and Cart  
-			Process p = Runtime.getRuntime().exec("./predict.TYPE2.R "+InputFileName+" cart.TYPE2.Rdata " + "RF"+OutputFileName); 
-			Process p2 = Runtime.getRuntime().exec("./predict.TYPE2.R "+InputFileName+" rf.TYPE2.Rdata " + "Cart"+OutputFileName); 
-			
+			Process p = Runtime.getRuntime().exec("./predict.TYPE2.R "+InputFileName+" cart.TYPE2.Rdata " + "Cart"+OutputFileName); 
+			Process p2 = Runtime.getRuntime().exec("./predict.TYPE2.R "+InputFileName+" rf.TYPE2.Rdata " + "RF"+OutputFileName); 
+		
 			InputStreamReader ir = new InputStreamReader(p.getInputStream());
 //			Create I/O Line for Print output  
 			LineNumberReader input = new LineNumberReader(ir); 
@@ -39,8 +45,8 @@ public class RunRCode {
 				System.out.println(line2);
 			}
 
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
 	}
 }

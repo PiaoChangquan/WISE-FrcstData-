@@ -25,19 +25,7 @@ public class ForecastGribReader  {
 		logger.info(" REST Service Reader Starterd...");
 
 		try {
-			/*
-			 * read configuration
-			 */
-//			Resource resource = new ClassPathResource("./config.properties");
-//			Properties props = PropertiesLoaderUtils.loadProperties(resource);
-//			
-//			
-//			String forecastApiBaseUri = props.getProperty("forecast.url");
-//			String serviceKey = props.getProperty("forecast.servicekey");
-//			String type = props.getProperty("forecast.resType");
 
-			
-			// String baseTime = "1600";
 
 			URIBuilder builder = new URIBuilder(awsInfo[0].getRestUrl());
 			builder.addParameter("serviceKey", URLDecoder.decode(awsInfo[0].getServiceKey(), "UTF-8"));

@@ -146,8 +146,17 @@ public class CombinationData {
 					}
 
 				}
+				System.out.println("Run R Code ");
+				
 				RunRCode.MakeRCodeRun(InputFileName, OutputFileName);
 
+				System.out.println("wait 5 sec to get data ");
+				try {
+		            Thread.sleep(5000);
+		        } catch (InterruptedException e) {
+		            e.printStackTrace(); 
+		        }
+				
 				GetCsvData.GetDataFromCsv(awsInfo, "RF" + OutputFileName);
 				GetCsvData.GetDataFromCsv(awsInfo, "Cart" + OutputFileName);
 

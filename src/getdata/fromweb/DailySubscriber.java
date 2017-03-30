@@ -31,41 +31,43 @@ public class DailySubscriber extends TimerTask {
 			// Current Time
 			Calendar calendar = Calendar.getInstance();
 			Date date = calendar.getTime();
-			long currTime = date.getTime();
-
-//			Resource resource = new ClassPathResource("./config.properties");
-//			Properties props = PropertiesLoaderUtils.loadProperties(resource);
-//
-//			int siteNum = Integer.parseInt(props.getProperty("site.num"));
-
 			
-			int siteNum = awsInfo[0].getCount();
+			int siteNum = awsInfo[0].getCount();		
+			String exeTime =awsInfo[0].getExetime();
 
-			
-			
+			String currHour = new SimpleDateFormat("HH").format(date);
 			
 			Item reqItem = new Item();
 			Map<Integer, List<Item>> resultMap = new HashMap<Integer, List<Item>>();
 			for (int i = 0; i < siteNum; i++) {
 				resultMap.put(i, new ArrayList<Item>());
 			}
-//			long exeTime = currTime - 1 * 24 * 60 * 60 * 1000;
-			long exeTime = currTime;
 			
-			reqItem.setBaseDate(new SimpleDateFormat("yyyyMMdd").format(exeTime));
 
+			
+//			String exeTime1 = new SimpleDateFormat("yyyyMMdd").format(calendar.getTime());
+//			reqItem.setBaseDate(exeTime1);
+			
+			
+			// FOR local Test
+			long currTime = date.getTime();
+			
+			long exeTime11 = currTime - 1 * 24 * 60 * 60 * 1000;
+			reqItem.setBaseDate(new SimpleDateFormat("yyyyMMdd").format(exeTime11));
+			
+			
+			
+			
+			
 			reqItem.setBaseTime(awsInfo[0].getBaseTime());
 			logger.debug("=====  ===== Hourly Subscribe date: {}, time: {} ===== ===== ", reqItem.getBaseDate(),
 					reqItem.getBaseTime());
 			ForecastData[]  ForecastDataArray = new ForecastData[siteNum];
-			for (int j = 0; j < siteNum; j++) {
-//				String grid = props.getProperty("site." + (j + 1) + ".grid");
-				
+			for (int j = 0; j < siteNum; j++) {			
 				
 				reqItem.setNx(String.valueOf(awsInfo[j].getNx()));
 				reqItem.setNy(String.valueOf(awsInfo[j].getNy()));
 				
-				System.out.println(reqItem.getNx());
 				List<Item> resItem = forecaster.HourlySubscribe(reqItem,awsInfo);
 				
 				for (Item item : resItem) {

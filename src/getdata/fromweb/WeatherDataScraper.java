@@ -20,12 +20,6 @@ public class WeatherDataScraper {
 		
 		try{
 			AWSInfo[] awsInfo = Configure.GetAWSInfo(filePath);
-
-//			Resource resource = new ClassPathResource("./config.properties");
-//			Properties props = PropertiesLoaderUtils.loadProperties(resource);
-//			
-//			String exeTime = props.getProperty("forecast.exetime");
-//			String period = props.getProperty("forecast.period");
 //						
 			String exeTime =awsInfo[0].getExetime();
 			String period =awsInfo[0].getPeriod();
@@ -34,18 +28,24 @@ public class WeatherDataScraper {
 			Date date = calendar.getTime();
 			
 			String currHour = new SimpleDateFormat("HH").format(date);
-			System.out.println(currHour);
-			if(Integer.parseInt(currHour) <= Integer.parseInt(exeTime)){
-				calendar.add(Calendar.DATE, 1);
+			if(Integer.parseInt(currHour) < Integer.parseInt(exeTime)){
+//				calendar.add(Calendar.DATE, -1);
 				String exeTime1 = new SimpleDateFormat("yyyy-MM-dd").format(calendar.getTime()) + " "+exeTime+":00";
-				System.out.println(exeTime1);
+
 				date = new SimpleDateFormat("yyyy-MM-dd HH:mm").parse(exeTime1);
 			}
+			
+//			if(Integer.parseInt(currHour) >= Integer.parseInt(exeTime)){
+//				String exeTime1 = new SimpleDateFormat("yyyy-MM-dd").format(calendar.getTime()) + " "+currHour+":00";
+//
+//				date = new SimpleDateFormat("yyyy-MM-dd HH:mm").parse(exeTime1);
+//			}
 			DailySubscriber job = new DailySubscriber();
 					
 			Timer jobScheduler = new Timer();
-	
-//			date = new Date();
+		
+			//For local Test
+			date = new Date();
 			logger.debug("===== Start Daily Subscribe At {}, Period: {} ===== ", date, period);
 			
 			jobScheduler.scheduleAtFixedRate(job, date, getTimePrecision(period));	
